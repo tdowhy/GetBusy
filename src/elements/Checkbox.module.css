@@ -1,0 +1,10 @@
+.Checkbox {
+    padding-left: 100px;
+    flex: 10;
+}
+
+.divStyle {
+    display: flex;
+    justify-content: flex-start;
+    float: left;
+}

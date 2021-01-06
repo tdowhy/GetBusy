@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
-const createtodo = () => {
-    return (
-        <div style={divStyle} className="input-group mb-3">
-            <div className="input-group-prepend">
-                <button style={btnStyle} className="btn btn-outline-secondary" type="button">Create Task</button>
-            </div>
-            <input type="text" className="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" />
-        </div>
-    );
+class CreateTodo extends Component {
+    state = {
+        title: ''
+    }
+
+
+    onSubmit = e => {
+        e.preventDefault();
+        this.props.onCreate(this.state.title);
+        this.setState({ title: '' });
+    } 
+
+    handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+    render() {
+        return (
+            <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
+                {/* <div style={divStyle} className="form-group mb-3">
+                    <div className="form-group-prepend"> */}
+                        <button onClick={ () =>
+                        this.props.onCreateTask }
+                        style={btnStyle} type="submit" className="btn btn-outline-secondary">Create Task</button>
+                    {/* </div> */}
+                    <input type="text" name="title" defaultValue={this.state.title} onChange={this.handleChange} className="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" />
+                {/* </div> */}
+            </form>
+        );
+    }
 }
 
 const btnStyle = {
@@ -23,4 +42,4 @@ const divStyle = {
     width: "65%",
 }
 
-export default createtodo;
+export default CreateTodo;

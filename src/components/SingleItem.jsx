@@ -6,13 +6,32 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class SingleItem extends Component {
+    divStyle = () => {
+        return {
+            textDecoration: this.props.todo.completed ? "line-through" : "none",
+            marginLeft: "25%",
+        };
+    };
+
+    btnStyle = () => {
+        return {
+            float: "right",
+            fontSize: "19px",
+        };
+    };
+
+    componentDidMount = (props) => {
+        console.log(this.props.todo);
+      };
+
     render() { 
         return ( 
-            <div style={divStyle}>
+            <div style={this.divStyle()}>
                 <p>
-                    <Checkbox style={{ flex: '10', padding: '5px' }} />
-                    This is the first task
-                    <button style={btnStyle} className="btn btn-danger">
+                    <Checkbox onCompleted={this.props.onCompleted} todo={this.props.todo} />
+                    {this.props.todo.task}
+                    <button onClick={() => this.props.onDelete(this.props.todo.id)} 
+                        style={this.btnStyle()} className="btn btn-danger">
                         <FontAwesomeIcon icon={faTrash} />
                     </button>
                 </p>
@@ -21,13 +40,10 @@ class SingleItem extends Component {
     }
 }
 
-const btnStyle = {
-    float: "right",
-    fontSize: "19px",
-};
+// const btnStyle = {
+//     float: "right",
+//     fontSize: "19px",
+// };
 
-const divStyle = {
-    marginLeft: "25%",
-};
  
 export default SingleItem;

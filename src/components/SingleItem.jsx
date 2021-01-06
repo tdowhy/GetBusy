@@ -10,6 +10,7 @@ class SingleItem extends Component {
         return {
             textDecoration: this.props.todo.completed ? "line-through" : "none",
             marginLeft: "25%",
+            marginTop: "1rem",
         };
     };
 
@@ -39,11 +40,6 @@ class SingleItem extends Component {
          );
     }
 }
-
-// const btnStyle = {
-//     float: "right",
-//     fontSize: "19px",
-// };
 
  
 export default SingleItem;

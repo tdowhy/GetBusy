@@ -6,21 +6,16 @@ import SingleItem from './components/SingleItem';
 import Footer from './components/Footer';
 import CreateTodo from './components/CreateTodo';
 
-//For Testing
-import Button from './elements/Button'
+import { v4 as uuidv4 } from "uuid";
 
 class App extends Component {
   state = { 
-    todos: [
-      { id: 1, task: "This is the first task.", completed: false },
-      { id: 2, task: "This is the second task.", completed: false },
-      { id: 3, task: "This is the third task.", completed: false },
-    ]
+    todos: []
    }
 
    handleCreate = task => {
     this.setState( prevState => ({
-        todos: [...prevState.todos, {id: prevState.length, task: task, completed: false}]
+        todos: [...prevState.todos, {id: uuidv4(), task: task, completed: false}]
     }));
    }
 

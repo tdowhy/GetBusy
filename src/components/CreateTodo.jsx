@@ -17,16 +17,14 @@ class CreateTodo extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
-                {/* <div style={divStyle} className="form-group mb-3">
-                    <div className="form-group-prepend"> */}
-                        <button onClick={ () =>
+            <div style={divStyle}>
+                <form onSubmit={this.onSubmit} style={{ display: 'flex' }}>
+                    <button onClick={ () =>
                         this.props.onCreateTask }
                         style={btnStyle} type="submit" className="btn btn-outline-secondary">Create Task</button>
-                    {/* </div> */}
-                    <input type="text" name="title" defaultValue={this.state.title} onChange={this.handleChange} className="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" />
-                {/* </div> */}
-            </form>
+                    <input autocomplete="off" type="text" name="title" value={this.state.title} onChange={this.handleChange} className="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" />
+                </form>
+            </div>
         );
     }
 }
@@ -37,9 +35,10 @@ const btnStyle = {
 }
 
 const divStyle = {
-    paddingTop: "1.5rem",
-    marginLeft: "19%",
-    width: "65%",
+    marginTop: "2.5rem",
+    marginLeft: "15%",
+    width: "75%",
+    fontFamily: 'Montserrat, sans-serif',  
 }
 
 export default CreateTodo;

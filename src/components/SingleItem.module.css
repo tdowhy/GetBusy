@@ -1,15 +1,6 @@
-.SingleItem {
-    float: left;
-    position: fixed;
-    left: 50%;
-}
-
 p {
     background-color: #D4D4Ce;
     width: 70%;
-    font-size: 26px;
-}
-
-.btn {
-    float: right;
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;  
 }
